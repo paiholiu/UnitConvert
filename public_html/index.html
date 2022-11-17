@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+ScalingOfUnite
+-->
+<html>
+    <head>
+        <title>單位換算</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                text-align: center;
+            }
+            fieldset {
+                border: 1px solid #000;
+                width: 20%;
+                display: inline-block;
+            }
+        </style>
+        <script>
+            function lengthConverter(valNum) {
+                document.getElementById("outputMeters").value = valNum / 100;
+                document.getElementById("outputKilo").value = valNum / 1000;
+                document.getElementById("outputFeet").value = valNum * 0.032808399;
+            }
+            
+            function tempConverter(valTemp) {
+                document.getElementById("C").value = (valTemp-32)* 5/9;
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>長度換算</legend>
+                <p>
+                    <lable>公分<input type="number" id="t1" oninput="lengthConverter(this.value)" /></lable>
+                </p>
+                <p>
+                    <lable>公尺<input type="number" id="outputMeters"/></lable>
+                </p>
+                <p>
+                    <lable>公里<input type="text" id="outputKilo"/></lable>
+                </p>    
+                <p>
+                    <lable>英里<input type="text" id="outputFeet"/></lable>
+                </p>  
+                <div><input type="button" value="清除" onclick="reset()"></div>    
+            </fieldset>
+        </form>
+        
+        <form>
+            <fieldset>
+                <legend>溫度換算</legend>
+                <p>
+                    <lable>華氏<input type="number" id="F" oninput="tempConverter(this.value)"/></lable>
+                </p>
+                <p>
+                    <lable>攝氏<input type="number" id="C" /></lable>
+                </p>
+                <div><input type="submit" value="清除" onclick="reset()"></div>
+            </fieldset>
+        </form>
+    </body>
+</html>
